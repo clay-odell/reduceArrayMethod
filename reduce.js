@@ -28,3 +28,12 @@ reduceAnswer4 = vowelCount('Matt')
 reduceAnswer5 = vowelCount('hmmm') 
 reduceAnswer6 = vowelCount('I Am awesome and so are you') 
     
+function addKeyAndValue(arr, key, val) {
+    return arr.reduce(function(acc, currentVal, index) {
+        acc[index][key] = val;
+        return acc;
+    }, arr);
+}
+const arrKeyVal = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
+
+const reduceAnswer7 = addKeyAndValue(arr, 'title', 'Instructor')
