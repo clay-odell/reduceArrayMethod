@@ -6,7 +6,7 @@ function extractValue(arr, key) {
 }
 const arr = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}]
 
-reduceAnswer1 = extractValue(arr, 'name')
+const reduceAnswer1 = extractValue(arr, 'name')
 
 function vowelCount(str){
     const vowels = 'aeiou';
@@ -22,11 +22,11 @@ function vowelCount(str){
           return acc;
         }, {});
 }
-reduceAnswer2 = vowelCount('Elie') 
-reduceAnswer3 = vowelCount('Tim') 
-reduceAnswer4 = vowelCount('Matt') 
-reduceAnswer5 = vowelCount('hmmm') 
-reduceAnswer6 = vowelCount('I Am awesome and so are you') 
+const reduceAnswer2 = vowelCount('Elie') 
+const reduceAnswer3 = vowelCount('Tim') 
+const reduceAnswer4 = vowelCount('Matt') 
+const reduceAnswer5 = vowelCount('hmmm') 
+const reduceAnswer6 = vowelCount('I Am awesome and so are you') 
     
 function addKeyAndValue(arr, key, val) {
     return arr.reduce(function(acc, currentVal, index) {
@@ -37,3 +37,28 @@ function addKeyAndValue(arr, key, val) {
 const arrKeyVal = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
 
 const reduceAnswer7 = addKeyAndValue(arr, 'title', 'Instructor')
+
+function partition(arr, callback) {
+    return arr.reduce(function(acc, currentVal){
+        if(callback(currentVal)) {
+            acc[0].push(currentVal);
+        } else {
+            acc[1].push(currentVal);
+        }
+        return acc;
+    },[[], []])
+}function isEven(val){
+    return val % 2 === 0;
+  }
+  
+  const arrIsEven = [1,2,3,4,5,6,7,8];
+  
+const reduceAnswer8 = partition(arrIsEven, isEven) // [[2,4,6,8], [1,3,5,7]];
+  
+  function isLongerThanThreeCharacters(val){
+    return val.length > 3;
+  }
+  
+  const names = ['Elie', 'Colt', 'Tim', 'Matt'];
+  
+const reduceAnswer9 = partition(names, isLongerThanThreeCharacters)
